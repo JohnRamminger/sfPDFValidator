@@ -1,3 +1,10 @@
+import { WebPartContext } from "@microsoft/sp-webpart-base";
+
 export interface IPdfViewerProps {
-  description: string;
+  ctx: WebPartContext;
+  validationIcon: string;
+  validationText: string;
+  taskCompleteMessage: string;
+  headerMessage: string;
+  redirectUrl: string;
 }

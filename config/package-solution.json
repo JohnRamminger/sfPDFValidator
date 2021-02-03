@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "sfpdfviewer-client-side-solution",
+    "name": "etcpdfviewer",
     "id": "d3fe1aff-9ace-4383-8d72-bef095558b79",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false
   },
   "paths": {
-    "zippedPackage": "solution/sfpdfviewer.sppkg"
+    "zippedPackage": "solution/etcpdfviewer.sppkg"
   }
 }

@@ -8,13 +8,84 @@
 // @import '@syncfusion/ej2-react-pdfviewer/styles/material.css';
 // @import '@syncfusion/ej2-notifications/styles/material.css';
 
-@import '~office-ui-fabric-react/dist/sass/References.scss';
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+.headerText {
+  width: 100%;
+}
+.textHeader {
+  color: black;
+  height: 200px;
+}
+.navHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 5fr 1fr 1fr 1fr;
+}
+
+.navText {
+  margin: auto;
+  font-size: 20px;
+}
+
+.signIcon {
+  font-size: 30px;
+  color: grey;
+  // margin: "0 25px";
+}
+
+.prevIcon {
+  font-size: 30px;
+  // margin: "0 25px";
+}
+.nextIcon {
+  text-align: right;
+  font-size: 30px;
+  // margin: "0 25px";
+}
+.clearFloat {
+  clear: both;
+}
+
+.pdfViewerButton {
+  color: yellow;
+  background-color: black;
+}
+
+.button {
+  color: yellow;
+  background-color: black;
+}
+
+.pdfNavContainer {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+}
 
 .pdfViewer {
+  .pdfButtonCLass {
+    color: yellow;
+    background-color: black;
+  }
+
+  .docPanel {
+    max-width: 200px;
+    background-color: black;
+  }
+
+  .pdfContainer {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .container {
-    max-width: 700px;
     margin: 0px auto;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .navPaneContainer {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: minmax(20px, auto) 5fr;
   }
 
   .row {

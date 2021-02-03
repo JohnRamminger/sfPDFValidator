@@ -1,27 +1,38 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import * as React from "react";
+import * as ReactDom from "react-dom";
+import { Version } from "@microsoft/sp-core-library";
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+  PropertyPaneTextField,
+  IPropertyPaneDropdownOption,
+  IPropertyPaneDropdownCalloutProps,
+  PropertyPaneDropdown,
+} from "@microsoft/sp-property-pane";
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 
-import * as strings from 'PdfViewerWebPartStrings';
-import PdfViewer from './components/PdfViewer';
-import { IPdfViewerProps } from './components/IPdfViewerProps';
+import * as strings from "PdfViewerWebPartStrings";
+import PdfViewer from "./components/PdfViewer";
+import { IPdfViewerProps } from "./components/IPdfViewerProps";
 
 export interface IPdfViewerWebPartProps {
-  description: string;
+  validationIcon: string;
+  validationText: string;
+  taskCompleteMessage: string;
+  headerMessage: string;
+  redirectUrl: string;
 }
 
-export default class PdfViewerWebPart extends BaseClientSideWebPart <IPdfViewerWebPartProps> {
-
+export default class PdfViewerWebPart extends BaseClientSideWebPart<IPdfViewerWebPartProps> {
   public render(): void {
     const element: React.ReactElement<IPdfViewerProps> = React.createElement(
       PdfViewer,
       {
-        description: this.properties.description
+        ctx: this.context,
+        validationIcon: this.properties.validationIcon,
+        validationText: this.properties.validationText,
+        taskCompleteMessage: this.properties.taskCompleteMessage,
+        headerMessage: this.properties.headerMessage,
+        redirectUrl: this.properties.redirectUrl,
       }
     );
 
@@ -33,7 +44,7 @@ export default class PdfViewerWebPart extends BaseClientSideWebPart <IPdfViewerW
   }
 
   protected get dataVersion(): Version {
-    return Version.parse('1.0');
+    return Version.parse("1.0");
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -41,20 +52,32 @@ export default class PdfViewerWebPart extends BaseClientSideWebPart <IPdfViewerW
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: strings.PropertyPaneDescription,
           },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
-            }
-          ]
-        }
-      ]
+                PropertyPaneTextField("validationText", {
+                  label: "Validation Text",
+                }),
+                PropertyPaneTextField("validationIcon", {
+                  label: "Validation Icon",
+                }),
+                PropertyPaneTextField("taskCompleteMessage", {
+                  label: "Task Complete Message",
+                }),
+                PropertyPaneTextField("headerMessage", {
+                  label: "Header Message",
+                }),
+                PropertyPaneTextField("redirectUrl", {
+                  label: "Url to redirect to when complete",
+                }),
+              ],
+            },
+          ],
+        },
+      ],
     };
   }
 }
