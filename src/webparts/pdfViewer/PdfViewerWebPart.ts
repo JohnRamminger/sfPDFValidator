@@ -1,5 +1,5 @@
 import * as React from "react";
-import "@pnp/polyfill-ie11";
+// import "@pnp/polyfill-ie11";
 import * as ReactDom from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
 import {
