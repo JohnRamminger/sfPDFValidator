@@ -142,34 +142,36 @@ export default class PdfViewer extends React.Component<
       taskCompleteMessage = this.props.taskCompleteMessage;
     }
     return (
-      <div className={styles.pdfViewer}>
-        <div>
-          {this.state.validated && <h2>{taskCompleteMessage}</h2>}
-          {!this.state.validated && (
-            <div>
-              <div
-                className={styles.headerText}
-                dangerouslySetInnerHTML={{ __html: this.props.headerMessage }}
-              />
-              <div className={styles.navHeader}>{headerItems}</div>
-            </div>
-          )}
-          <DocViewer
-            pluginRenderers={DocViewerRenderers}
-            documents={docs}
-            config={{
-              header: {
-                disableHeader: true,
-                disableFileName: true,
-                retainURLParams: false,
-              },
-            }}
-          />
-          <div className={styles.navHeader}>{headerItems}</div>
+      <span>
+        <div className={styles.pdfViewer}>
+          <div>
+            {this.state.validated && <h2>{taskCompleteMessage}</h2>}
+            {!this.state.validated && (
+              <div>
+                <div
+                  className={styles.headerText}
+                  dangerouslySetInnerHTML={{ __html: this.props.headerMessage }}
+                />
+                <div className={styles.navHeader}>{headerItems}</div>
+              </div>
+            )}
+            <DocViewer
+              pluginRenderers={DocViewerRenderers}
+              documents={docs}
+              config={{
+                header: {
+                  disableHeader: true,
+                  disableFileName: true,
+                  retainURLParams: false,
+                },
+              }}
+            />
+            <div className={styles.navHeader}>{headerItems}</div>
+          </div>
+          {/*     });
+           */}
         </div>
-        {/*     });
-         */}
-      </div>
+      </span>
     );
   }
 

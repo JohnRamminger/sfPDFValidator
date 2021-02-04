@@ -20,6 +20,7 @@
     "@pnp/common": "^2.1.1",
     "@pnp/logging": "^2.1.1",
     "@pnp/odata": "^2.1.1",
+    "@pnp/polyfill-ie11": "^2.0.2",
     "@pnp/sp": "^2.1.1",
     "@syncfusion/ej2-react-navigations": "^18.2.58",
     "@syncfusion/ej2-react-pdfviewer": "^18.2.58",
