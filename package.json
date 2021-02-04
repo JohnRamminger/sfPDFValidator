@@ -17,6 +17,10 @@
     "@microsoft/sp-office-ui-fabric-core": "1.10.0",
     "@microsoft/sp-property-pane": "1.10.0",
     "@microsoft/sp-webpart-base": "1.10.0",
+    "@pnp/common": "^2.1.1",
+    "@pnp/logging": "^2.1.1",
+    "@pnp/odata": "^2.1.1",
+    "@pnp/sp": "^2.1.1",
     "@syncfusion/ej2-react-navigations": "^18.2.58",
     "@syncfusion/ej2-react-pdfviewer": "^18.2.58",
     "@types/es6-promise": "0.0.33",
@@ -25,6 +29,7 @@
     "@types/webpack-env": "1.13.1",
     "office-ui-fabric-react": "6.189.2",
     "react": "16.8.5",
+    "react-doc-viewer": "^0.1.5",
     "react-dom": "16.8.5"
   },
   "resolutions": {
