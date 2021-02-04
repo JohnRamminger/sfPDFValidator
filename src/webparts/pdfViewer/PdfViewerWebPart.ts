@@ -1,4 +1,5 @@
 import * as React from "react";
+import "@pnp/polyfill-ie11";
 import * as ReactDom from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
 import {
@@ -13,6 +14,7 @@ import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import * as strings from "PdfViewerWebPartStrings";
 import PdfViewer from "./components/PdfViewer";
 import { IPdfViewerProps } from "./components/IPdfViewerProps";
+import { MiscFunctions } from "../../services";
 
 export interface IPdfViewerWebPartProps {
   validationIcon: string;
@@ -24,6 +26,11 @@ export interface IPdfViewerWebPartProps {
 
 export default class PdfViewerWebPart extends BaseClientSideWebPart<IPdfViewerWebPartProps> {
   public render(): void {
+    if (MiscFunctions.IsInternetExplorer()) {
+      this.domElement.innerHTML = "<h1>IE Not Suppored</h1>";
+      return;
+    }
+    console.log("Got by the IE Check");
     const element: React.ReactElement<IPdfViewerProps> = React.createElement(
       PdfViewer,
       {
