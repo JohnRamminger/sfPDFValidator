@@ -177,8 +177,11 @@ export default class PdfViewer extends React.Component<
 
   private getDocLib(): string {
     let queryParms = new URLSearchParams(window.location.href);
-
     let docUrl: string = queryParms.get("doclib");
+    if (MiscFunctions.IsEmpty(docUrl)) {
+      let qp2 = new UrlQueryParameterCollection(window.location.href);
+      docUrl = qp2.getValue("doclib");
+    }
     console.log("DocLib: " + docUrl);
     return docUrl;
   }
